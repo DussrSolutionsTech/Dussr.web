@@ -888,13 +888,22 @@ td {
   color: #7141b1;
 }
 .btn-details i {
-  margin-right: 8px;
-  transition: all 0.2s linear;
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
-  -ms-transition: all 0.2s linear;
-}
+    margin-left: 8px;
+    transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+  }
+
+  .flip{
+    position: absolute;
+    transform: scaleX(-1);
+  }
+  .padding{
+padding-right: 25px;
+  }
+
 .btn-details i:before {
   font-size: 15px;
 }
