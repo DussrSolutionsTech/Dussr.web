@@ -28,38 +28,38 @@
 								drag_block_vertical: false
 							},
 							
-							arrows: {
-								style: "nav-home-1",
-								enable: true,
-								hide_onmobile: false,
-								hide_onleave: false,
-								left: {
-									h_align: "left",
-									v_align: "bottom",
-									h_offset: 365,
-									v_offset: 50
-								},
-								right: {
-									h_align: "left",
-									v_align: "bottom",
-									h_offset: 465,
-									v_offset: 50
-								}
-							},
-							bullets: {
-								enable:true,
-								hide_onmobile:false,
-								style:"bullet-home-1",
+							// arrows: {
+							// 	style: "nav-home-1",
+							// 	enable: true,
+							// 	hide_onmobile: false,
+							// 	hide_onleave: false,
+							// 	left: {
+							// 		h_align: "left",
+							// 		v_align: "bottom",
+							// 		h_offset: 365,
+							// 		v_offset: 50
+							// 	},
+							// 	right: {
+							// 		h_align: "left",
+							// 		v_align: "bottom",
+							// 		h_offset: 465,
+							// 		v_offset: 50
+							// 	}
+							// },
+							// bullets: {
+							// 	enable:true,
+							// 	hide_onmobile:false,
+							// 	style:"bullet-home-1",
 								
-								hide_onleave:false,
-								direction:"horizontal",
-								h_align:"left",
-								v_align:"bottom",
-								h_offset:50,
-								v_offset:60,
-								space:5,
-								tmp:''
-							}							
+							// 	hide_onleave:false,
+							// 	direction:"horizontal",
+							// 	h_align:"left",
+							// 	v_align:"bottom",
+							// 	h_offset:50,
+							// 	v_offset:60,
+							// 	space:5,
+							// 	tmp:''
+							// }							
 						},
 						responsiveLevels:[1240,1024,778,480],
 						visibilityLevels:[1240,1024,778,480],

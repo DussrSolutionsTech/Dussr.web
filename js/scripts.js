@@ -79,8 +79,11 @@
                 var scrollTop = $(window).scrollTop();
                 if (scrollTop > scrollTrigger) {
                     $('#back-to-top').addClass('show');
+                    $('#whatsappFixed').addClass('show_2');
                 } else {
                     $('#back-to-top').removeClass('show');
+                    $('#whatsappFixed').removeClass('show_2');
+
                 }
             };
         backToTop();

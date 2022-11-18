@@ -1,67 +1,45 @@
 <?php
-if(isset($_POST['email'])) {
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
  
-    // EDIT THE 2 LINES BELOW AS REQUIRED
-    $email_to = "u.af@hotmail.com";
-    $email_subject = "Your email subject line";
+require '/usr/local/lib/php/phpmailer/src/Exception.php';
+require '/usr/local/lib/php/phpmailer/src/PHPMailer.php';
+require '/usr/local/lib/php/phpmailer/src/SMTP.php';
  
-    function died($error) {
-        // your error code can go here
-        echo "We are very sorry, but there were error(s) found with the form you submitted. ";
-        echo "These errors appear below.<br /><br />";
-        echo $error."<br /><br />";
-        echo "Please go back and fix these errors.<br /><br />";
-        die();
-    }
+$mail = new PHPMailer(true);
+
+    #if(isset($_POST['submit'])){
+      $email=$_POST['email'];
+
+		
+	    $message="Email: $email<br>".;
+      $subject="Solutions by Dussr - News Letter - Visitors";
+      
  
+
+    try {
+    #$mail->SMTPDebug = SMTP::DEBUG_SERVER;
+    $mail->isSMTP();
+    $mail->Host = "smtp.office365.com";
+    $mail->Port       = 587;
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->SMTPAuth   = true;
+    $mail->Username = "ticket.dusser@gmail.com";   
+    $mail->Password = "Aa@1234567";
+	
+	$mail->SetFrom('ticket.dusser@gmail.com', 'FromEmail');
+	$mail->addAddress('ticket.dusser@gmail.com', 'ToEmail');
+
+    #$mail->SetFrom('meganb@#####.onmicrosoft.com', 'Megan Bowen');
+    #$mail->addAddress('tawajad@dussrsolutions.com', 'Enquiries');
+    $mail->IsHTML(true);
+    $mail->Subject = $subject;
+    $mail->Body = $message;
+    $mail->Send();
  
-    // validation expected data exists
-    if(!isset($_POST['email'])) {
-        died('We are sorry, but there appears to be a problem with the form you submitted.');       
-    }
- 
-     
- 
-    $email_from = $_POST['email']; // required
- 
-    $error_message = "";
-    $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
- 
-  if(!preg_match($email_exp,$email_from)) {
-    $error_message .= 'The Email Address you entered does not appear to be valid.<br />';
-  }
- 
-    $string_exp = "/^[A-Za-z .'-]+$/";
- 
- 
-  if(strlen($error_message) > 0) {
-    died($error_message);
-  }
- 
-    $email_message = "Form details below.\n\n";
- 
-     
-    function clean_string($string) {
-      $bad = array("content-type","bcc:","to:","cc:","href");
-      return str_replace($bad,"",$string);
-    }
- 
-     
- 
-    $email_message .= "Email: ".clean_string($email_from)."\n";
- 
-// create email headers
-$headers = 'From: '.$email_from."\r\n".
-'Reply-To: '.$email_from."\r\n" .
-'X-Mailer: PHP/' . phpversion();
-@mail($email_to, $email_subject, $email_message, $headers);  
-?>
- 
-<!-- include your own success html here -->
- 
-Thank you for subcribe us.
- 
-<?php
- 
+    echo 'Message has been sent';
+} catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
-?>
+   # }
